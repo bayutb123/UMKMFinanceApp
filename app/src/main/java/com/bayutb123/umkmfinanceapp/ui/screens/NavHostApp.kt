@@ -15,7 +15,7 @@ fun NavHostApp(
 ) {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Screen.Register.route) {
+    NavHost(navController = navController, startDestination = Screen.Home.route) {
         composable(Screen.Home.route) {
             HomeScreen(
                 onNavigationRequested = { route ->
