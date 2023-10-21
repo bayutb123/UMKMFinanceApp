@@ -1,5 +1,6 @@
 package com.bayutb123.umkmfinanceapp.ui.screens
 
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
@@ -15,7 +16,7 @@ fun NavHostApp(
 ) {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Screen.Home.route) {
+    NavHost(navController = navController, startDestination = Screen.Home.route, modifier = modifier.systemBarsPadding()) {
         composable(Screen.Home.route) {
             HomeScreen(
                 onNavigationRequested = { route ->

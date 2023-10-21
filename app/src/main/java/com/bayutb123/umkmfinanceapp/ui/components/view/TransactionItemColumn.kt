@@ -15,22 +15,46 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bayutb123.umkmfinanceapp.ui.theme.UMKMFinanceAppTheme
 
 @Composable
 fun TransactionItemColumn(
-    modifier : Modifier = Modifier
+    modifier: Modifier = Modifier
 ) {
-    Row(verticalAlignment = Alignment.CenterVertically, modifier = modifier
-        .fillMaxWidth()
+    val fillMaxWidth = Modifier.fillMaxWidth()
+    Row(
+        verticalAlignment = Alignment.CenterVertically, modifier = modifier
+            .fillMaxWidth()
     ) {
-        Icon(imageVector = Icons.Default.MonetizationOn, contentDescription = "Settings", modifier = modifier.padding(16.dp))
+        Icon(
+            imageVector = Icons.Default.MonetizationOn,
+            contentDescription = "Settings",
+            modifier = modifier.padding(16.dp)
+        )
         Column(modifier = modifier.weight(1f)) {
-            Text(text = "10-10-2021", style = MaterialTheme.typography.bodySmall, fontWeight = FontWeight.Light)
-            Text(text = "Pembelian", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Medium)
-            Text(text = "Rp. 1.000.000", style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Light)
+            Text(
+                text = "10-10-2021",
+                style = MaterialTheme.typography.bodySmall,
+                fontWeight = FontWeight.Light,
+                modifier = fillMaxWidth
+            )
+            Text(
+                text = "Pembelian stok komputer A2 untuk pribadi",
+                overflow = TextOverflow.Ellipsis,
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Medium,
+                modifier = fillMaxWidth,
+                maxLines = 1
+            )
+            Text(
+                text = "Rp. 1.000.000",
+                style = MaterialTheme.typography.bodyMedium,
+                fontWeight = FontWeight.Light,
+                modifier = fillMaxWidth
+            )
         }
         IconButton(onClick = { /*TODO*/ }) {
             Icon(imageVector = Icons.Default.MoreVert, contentDescription = "More")
@@ -38,7 +62,7 @@ fun TransactionItemColumn(
     }
 }
 
-@Preview
+@Preview(backgroundColor = 0xFFFFFFFF, showBackground = true)
 @Composable
 fun PreviewTransactionItemColumn() {
     UMKMFinanceAppTheme {
