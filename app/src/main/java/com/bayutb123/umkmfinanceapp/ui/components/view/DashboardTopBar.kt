@@ -1,10 +1,8 @@
 package com.bayutb123.umkmfinanceapp.ui.components.view
 
-import android.widget.Space
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
@@ -21,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun HomeTopBar(
+fun DashboardTopBar(
     modifier : Modifier = Modifier
 ) {
     Row(verticalAlignment = Alignment.CenterVertically, modifier = modifier.padding(vertical = 8.dp)) {
@@ -41,6 +39,6 @@ fun HomeTopBar(
 @Composable
 fun PreviewHomeTopBar() {
     MaterialTheme {
-        HomeTopBar()
+        DashboardTopBar()
     }
 }

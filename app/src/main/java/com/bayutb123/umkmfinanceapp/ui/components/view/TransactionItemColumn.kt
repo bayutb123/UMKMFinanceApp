@@ -1,5 +1,6 @@
 package com.bayutb123.umkmfinanceapp.ui.components.view
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,19 +23,20 @@ import com.bayutb123.umkmfinanceapp.ui.theme.UMKMFinanceAppTheme
 
 @Composable
 fun TransactionItemColumn(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onItemClick: () -> Unit
 ) {
     val fillMaxWidth = Modifier.fillMaxWidth()
     Row(
         verticalAlignment = Alignment.CenterVertically, modifier = modifier
-            .fillMaxWidth()
+            .fillMaxWidth().clickable { onItemClick() }
     ) {
         Icon(
             imageVector = Icons.Default.MonetizationOn,
             contentDescription = "Settings",
             modifier = modifier.padding(16.dp)
         )
-        Column(modifier = modifier.weight(1f)) {
+        Column(modifier = modifier.weight(1f).padding(vertical = 8.dp)) {
             Text(
                 text = "10-10-2021",
                 style = MaterialTheme.typography.bodySmall,
@@ -66,6 +68,6 @@ fun TransactionItemColumn(
 @Composable
 fun PreviewTransactionItemColumn() {
     UMKMFinanceAppTheme {
-        TransactionItemColumn()
+        TransactionItemColumn() {}
     }
 }
