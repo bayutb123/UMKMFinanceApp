@@ -44,7 +44,7 @@ fun TransactionScreenContent(
         }
     ) { paddingValues ->
         Column(modifier = modifier.padding(paddingValues)) {
-            LazyRow(contentPadding = PaddingValues(horizontal = 16.dp , vertical = 8.dp), horizontalArrangement = Arrangement.spacedBy(8.dp) ) {
+            LazyRow(contentPadding = PaddingValues(horizontal = 16.dp , vertical = 8.dp)) {
                 items(sortList) {
                     TextButton(onClick = { /*TODO*/ }, colors = ButtonDefaults.buttonColors(
                         containerColor = MaterialTheme.colorScheme.primary,
