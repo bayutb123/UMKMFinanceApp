@@ -9,6 +9,7 @@ import androidx.navigation.compose.rememberNavController
 import com.bayutb123.umkmfinanceapp.ui.screens.home.HomeScreen
 import com.bayutb123.umkmfinanceapp.ui.screens.auth.login.LoginScreen
 import com.bayutb123.umkmfinanceapp.ui.screens.auth.register.RegisterScreen
+import com.bayutb123.umkmfinanceapp.ui.screens.finance.AddRecordScreen
 
 @Composable
 fun NavHostApp(
@@ -34,6 +35,14 @@ fun NavHostApp(
         composable(Screen.Register.route) {
             RegisterScreen(
                 onNavigationRequested = { route ->
+                    navController.navigate(route)
+                },
+            )
+        }
+        composable(Screen.Add.route) {
+            AddRecordScreen(
+                modifier = modifier,
+                onNavigationClick = { route ->
                     navController.navigate(route)
                 },
             )

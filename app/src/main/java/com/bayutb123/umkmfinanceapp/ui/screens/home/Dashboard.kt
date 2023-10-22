@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.bayutb123.umkmfinanceapp.ui.components.view.DashboardSummaryCard
 import com.bayutb123.umkmfinanceapp.ui.components.view.DashboardTopBar
 import com.bayutb123.umkmfinanceapp.ui.components.view.HighLightBox
 import com.bayutb123.umkmfinanceapp.ui.components.view.TransactionItemColumn
@@ -39,8 +40,9 @@ fun DashboardContent(
         }
     ) { paddingValues ->
         Column(modifier = modifier.padding(paddingValues)) {
+            DashboardSummaryCard(onItemClick = { /*TODO*/ }, summaryValue = 12000000, modifier = modifier)
             Text(
-                text = "Home Screen",
+                text = "Sorotan",
                 modifier = modifier.padding(horizontal = 16.dp),
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold
@@ -59,7 +61,7 @@ fun DashboardContent(
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold
             )
-            LazyColumn(verticalArrangement = Arrangement.spacedBy(0.dp)) {
+            LazyColumn(verticalArrangement = Arrangement.spacedBy(0.dp), modifier = modifier.weight(1f)) {
                 items(10) {
                     TransactionItemColumn() {}
                 }

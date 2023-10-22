@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBalance
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
@@ -34,6 +36,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.bayutb123.umkmfinanceapp.ui.components.view.HomeBottomNavigationBar
 import com.bayutb123.umkmfinanceapp.ui.screens.Screen
+import com.bayutb123.umkmfinanceapp.ui.screens.finance.AddRecordScreen
 import com.bayutb123.umkmfinanceapp.ui.uiClass.NavigationItem
 
 @Composable
@@ -61,20 +64,20 @@ fun HomeScreenContent(
             id = 1,
             route = Screen.Dashboard.route,
             icon = Icons.Default.Home,
-            title = "Dashboard",
+            title = "Dasbor",
+        ),
+        NavigationItem(
+            id = 0,
+            route = Screen.Add.route,
+            icon = Icons.Default.AddCircle,
+            title = "Tambah",
         ),
         NavigationItem(
             id = 0,
             route = Screen.Transaction.route,
             icon = Icons.Default.Money,
-            title = "Transactions"
+            title = "Transaksi"
         ),
-//        NavigationItem(
-//            id = 0,
-//            route = "home",
-//            icon = Icons.Default.CalendarMonth,
-//            title = "Report"
-//        ),
 //        NavigationItem(
 //            id = 0,
 //            route = "home",
@@ -95,18 +98,22 @@ fun HomeScreenContent(
                         label = { Text(text = screen.title) },
                         selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
                         onClick = {
-                            bottomBarNavController.navigate(screen.route) {
-                                // Pop up to the start destination of the graph to
-                                // avoid building up a large stack of destinations
-                                // on the back stack as users select items
-                                popUpTo(bottomBarNavController.graph.findStartDestination().id) {
-                                    saveState = true
+                            if (screen.route == Screen.Add.route) {
+                                onNavigationClick(screen.route)
+                            } else {
+                                bottomBarNavController.navigate(screen.route) {
+                                    // Pop up to the start destination of the graph to
+                                    // avoid building up a large stack of destinations
+                                    // on the back stack as users select items
+                                    popUpTo(bottomBarNavController.graph.findStartDestination().id) {
+                                        saveState = true
+                                    }
+                                    // Avoid multiple copies of the same destination when
+                                    // reselecting the same item
+                                    launchSingleTop = true
+                                    // Restore state when reselecting a previously selected item
+                                    restoreState = true
                                 }
-                                // Avoid multiple copies of the same destination when
-                                // reselecting the same item
-                                launchSingleTop = true
-                                // Restore state when reselecting a previously selected item
-                                restoreState = true
                             }
                         }
                     )
