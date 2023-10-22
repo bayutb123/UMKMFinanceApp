@@ -6,5 +6,5 @@ data class NavigationItem(
     val id: Int,
     val route: String,
     val icon: ImageVector,
-    val title: String
+    val title: String,
 )

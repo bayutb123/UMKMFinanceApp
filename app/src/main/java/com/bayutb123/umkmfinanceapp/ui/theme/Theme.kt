@@ -41,7 +41,7 @@ private val LightColorScheme = lightColorScheme(
 fun UMKMFinanceAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
@@ -58,7 +58,7 @@ fun UMKMFinanceAppTheme(
         SideEffect {
             val window = (view.context as Activity).window
             window.statusBarColor = colorScheme.surface.toArgb()
-            window.navigationBarColor = colorScheme.primaryContainer.toArgb()
+            window.navigationBarColor = colorScheme.surfaceContainerHigh.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
         }
     }
