@@ -1,24 +1,14 @@
 package com.bayutb123.umkmfinanceapp.ui.screens
 
 sealed class Screen(val route: String) {
+    object Register : Screen(REGISTER_ROUTE)
     object Login : Screen(LOGIN_ROUTE)
     object Home : Screen(HOME_ROUTE)
     object Dashboard : Screen(DASHBOARD_ROUTE)
+    object Add : Screen(ADD_ROUTE)
     object Transaction : Screen(TRANSACTION_ROUTE)
     object Detail : Screen(DETAIL_ROUTE)
-    object Add : Screen(ADD_ROUTE)
     object Edit : Screen(EDIT_ROUTE)
-    object Register : Screen(REGISTER_ROUTE)
-
-
-    fun withArgs(vararg args: String): String {
-        return buildString {
-            append(route)
-            args.forEach { arg ->
-                append("/$arg")
-            }
-        }
-    }
 
     companion object {
         private const val LOGIN_ROUTE = "login"

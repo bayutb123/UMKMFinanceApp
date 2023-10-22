@@ -40,7 +40,8 @@ fun DashboardContent(
         }
     ) { paddingValues ->
         Column(modifier = modifier.padding(paddingValues)) {
-            DashboardSummaryCard(onItemClick = { /*TODO*/ }, summaryValue = 12000000, modifier = modifier)
+            DashboardSummaryCard(onItemClick = { /*TODO*/ }, summaryValue = -1200000, modifier = modifier)
+
             Text(
                 text = "Sorotan",
                 modifier = modifier.padding(horizontal = 16.dp),
